@@ -1,0 +1,18 @@
+diff --git a/driver/others/blas_server_win32.c b/driver/others/blas_server_win32.c
+index df164c5..ea752e0 100644
+--- a/driver/others/blas_server_win32.c
++++ b/driver/others/blas_server_win32.c
+@@ -40,13 +40,11 @@
+ #include <stdlib.h>
+ #include "common.h"
+ 
+-#if defined(OS_CYGWIN_NT) && !defined(unlikely)
+ #ifdef __GNUC__
+ #define unlikely(x) __builtin_expect(!!(x), 0)
+ #else
+ #define unlikely(x) (x)
+ #endif
+-#endif
+ 
+ /* This is a thread implementation for Win32 lazy implementation */
+ 

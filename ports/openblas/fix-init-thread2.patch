@@ -1,0 +1,43 @@
+diff --git a/driver/others/blas_server_win32.c b/driver/others/blas_server_win32.c
+index 5ecc442..df164c5 100644
+--- a/driver/others/blas_server_win32.c
++++ b/driver/others/blas_server_win32.c
+@@ -348,10 +348,10 @@ int blas_thread_init(void){
+ 
+ int exec_blas_async(BLASLONG pos, blas_queue_t *queue){
+ 
+-#if defined(SMP_SERVER) && defined(OS_CYGWIN_NT)
++//#if defined(SMP_SERVER) && defined(OS_CYGWIN_NT)
+   // Handle lazy re-init of the thread-pool after a POSIX fork
+   if (unlikely(blas_server_avail == 0)) blas_thread_init();
+-#endif
++//#endif
+ 
+   blas_queue_t *current;
+ 
+@@ -418,10 +418,10 @@ int exec_blas_async_wait(BLASLONG num, blas_queue_t *queue){
+ /* Execute Threads */
+ int exec_blas(BLASLONG num, blas_queue_t *queue){
+ 
+-#if defined(SMP_SERVER) && defined(OS_CYGWIN_NT)
++//#if defined(SMP_SERVER) && defined(OS_CYGWIN_NT)
+   // Handle lazy re-init of the thread-pool after a POSIX fork
+   if (unlikely(blas_server_avail == 0)) blas_thread_init();
+-#endif
++//#endif
+ 
+ #ifndef ALL_THREADED
+    int (*routine)(blas_arg_t *, void *, void *, double *, double *, BLASLONG);
+@@ -489,10 +489,10 @@ void goto_set_num_threads(int num_threads)
+ {
+ 	long i;
+ 
+-#if defined(SMP_SERVER) && defined(OS_CYGWIN_NT)
++//#if defined(SMP_SERVER) && defined(OS_CYGWIN_NT)
+ 	// Handle lazy re-init of the thread-pool after a POSIX fork
+ 	if (unlikely(blas_server_avail == 0)) blas_thread_init();
+-#endif
++//#endif
+ 
+ 	if (num_threads < 1) num_threads = blas_cpu_number;
+ 

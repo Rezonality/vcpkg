@@ -10,6 +10,8 @@ vcpkg_from_github(
         fix-redefinition-function.patch
         fix-pkg-config.patch
         fix-uwp-build.patch
+        fix-init-thread2.patch
+        fix-init-thread3.patch
 )
 
 find_program(GIT NAMES git git.cmd)
